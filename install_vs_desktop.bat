@@ -1,0 +1,36 @@
+@set INSTALLDIR=%1
+@REM Set the language; enu for English-US
+@set LANG=%2
+
+@msiexec /a packages\VisualC_D14\VC_Tools.Core\VC_Tools.Core.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_Tools.Core.Res\%LANG%\VC_Tools.Core.Res.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_Tools.X86.Base\VC_Tools.X86.Base.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_Tools.X86.Base.Res\%LANG%\VC_Tools.X86.Base.Res.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_Tools.X86.Nat\VC_Tools.X86.Nat.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_Tools.X86.Nat.Res\%LANG%\VC_Tools.X86.Nat.Res.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_Tools.X86.X64\VC_Tools.X86.X64.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_Tools.X86.X64.Res\%LANG%\VC_Tools.X86.X64.Res.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_PremTools.X86.Base\VC_PremTools.X86.Base.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_PremTools.X86.Base.Res\%LANG%\VC_PremTools.X86.Base.Res.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_PremTools.X86.Nat\VC_PremTools.X86.Nat.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_PremTools.X86.Nat.Res\%LANG%\VC_PremTools.X86.Nat.Res.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_PremTools.X86.X64\VC_PremTools.X86.X64.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_PremTools.X86.X64.Res\%LANG%\VC_PremTools.X86.X64.Res.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_CRT.Headers\VC_CRT.Headers.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_CRT.X86.Desktop\VC_CRT.X86.Desktop.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_CRT.X86.Store\VC_CRT.X86.Store.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_CRT.X64.Desktop\VC_CRT.X64.Desktop.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_CRT.X64.Store\VC_CRT.X64.Store.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_CRT.Redist.Res\%LANG%\VC_CRT.Redist.Res.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_CRT.Redist.X86\VC_CRT.Redist.X86.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_CRT.Redist.X64\VC_CRT.Redist.X64.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_ATL.Headers\VC_ATL.Headers.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_ATL.X86\VC_ATL.X86.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_ATL.X64\VC_ATL.X64.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_MFC.Headers\VC_MFC.Headers.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_MFC.X86\VC_MFC.X86.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_MFC.X64\VC_MFC.X64.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_PGO.Headers\VC_PGO.Headers.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_PGO.X86\VC_PGO.X86.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a packages\VisualC_D14\VC_PGO.X64\VC_PGO.X64.msi TARGETDIR=%INSTALLDIR%
+@msiexec /a "packages\Win10_UniversalCRTSDK\Universal CRT Headers Libraries and Sources-x86_en-us.msi" TARGETDIR=%INSTALLDIR%

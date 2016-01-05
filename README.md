@@ -1,7 +1,7 @@
 Instructions to create a portable version of Visual C++
 -------------------------------------------------------
 
-Thanks to @Alek's answer on Stackoverflow for [this question](http://stackoverflow.com/questions/22290501/can-i-download-the-visual-c-command-line-compiler-without-visual-studio/), I have managed to create a portable version of Microsoft C++ compiler. Note that this does **NOT** include the Visual Studio IDE but only the `CL` compiler, headers and libraries necessary to compile C/C++ programs. Here is a step by step guide:
+Thanks to @Alek's answer on Stackoverflow for [this question](http://stackoverflow.com/questions/22290501/can-i-download-the-visual-c-command-line-compiler-without-visual-studio/), I have managed to create a portable version of Microsoft C++ compiler. Note that this does **NOT** include the Visual Studio IDE but only the `CL` compiler, headers and libraries necessary to compile **traditional** C/C++ programs (i.e. not Universal App). Here is a step by step guide:
 
 1. Download (but do not install) Visual Studio Community 2015: get the web installer from [Microsoft](https://www.visualstudio.com/downloads/download-visual-studio-vs)
 
@@ -95,7 +95,7 @@ Note that the variables `UCRTVersion` and `WindowsSDKLibVersion` need to reflect
     @set FrameworkVersion=%FrameworkVersion32%
 ```
 
-Also, instead of doing `setx` in the above steps (which makes permanent variables on the system), you can add those command with `@set` in place of `setx` in the `%VCINSTALLDIR%\vcvarsall.bat`.
+Also, instead of doing `setx` in the above steps (which makes permanent variables on the system), you can add those command with `@set` in place of `setx` in the `%VCINSTALLDIR%\vcvarsall.bat`. These scripts `vcvars*.bat` also fails to add a backslash to separate `WindowsSDKLibVersion` and the subfolder `um`.
 
 8. Now you can zip %INSTALLDIR% and use it on other machines. Note that you need to set up the environment variables again as in step 6.
 

@@ -7,7 +7,9 @@ Thanks to @Alek's answer on Stackoverflow for [this question](http://stackoverfl
 
 2. Open command prompt and execute
 
+```
     [vscommunity_ENU] /layout
+```
 
 where [vscommunity_ENU] should be the name of the web installer that you download earlier. The Visual Studio installer will popup. Choose download location and wait for it to complete obtaining the main packages. When you reach the stage to download _Optional stuffs_, cancel the installer. This will basically obtain the latest updates and will take a few GB of download and we are not using them anyway.
 
@@ -15,7 +17,9 @@ where [vscommunity_ENU] should be the name of the web installer that you downloa
 
 4. Install the Visual C++ packages using our [script](install_vs.bat)
 
+```
     install_vs [folder] [language]
+```
 
 or you can just execute the following commands at the command prompt (you need to `cd` to the folder where you download Visual Studio Express)
 
@@ -59,13 +63,16 @@ Note that @Alek's answer does not take into account the subfolder for the `.Res`
 
 5. Install the basic SDK or whatever depending on your need: again, `cd` to the folder where you download the SDK and execute the following at the prompt
 
+```
     msiexec /a "Installers\Windows SDK Desktop Headers Libs Metadata-x86_en-us.msi" TARGETDIR=%INSTALLDIR%
     msiexec /a "Installers\Windows SDK Desktop Tools-x86_en-us.msi" TARGETDIR=%INSTALLDIR%
     msiexec /a "Installers\Windows SDK for Windows Store Apps Headers Libs-x86_en-us.msi" TARGETDIR=%INSTALLDIR%
     msiexec /a "Installers\Windows SDK for Windows Store Apps Tools-x86_en-us.msi" TARGETDIR=%INSTALLDIR%
+```
 
 6. Post-installation preparation: you need to set up several environment variables
 
+```
     setx VSINSTALLDIR=%INSTALLDIR%\Program Files\Microsoft Visual Studio 14.0\
     setx VCINSTALLDIR=%INSTALLDIR%\Program Files\Microsoft Visual Studio 14.0\VC\
     setx UCRTVersion=10.0.10150.0
@@ -73,17 +80,20 @@ Note that @Alek's answer does not take into account the subfolder for the `.Res`
     setx WindowsSdkDir=%INSTALLDIR%\Windows Kits\10\
     setx WindowsSDKLibVersion=10.0.10586.0
     setx WindowsSDK_ExecutablePath_x86=%INSTALLDIR%\Windows Kits\10\bin\x86\
+```
 
 Note that the variables `UCRTVersion` and `WindowsSDKLibVersion` need to reflect your currennt installation.
 
 7. Modifying the installed BAT scripts to remove .NET Framework dependency: you might want to remove the lines related to .NET checking in those `vcvars*.bat` located in `%VCINSTALLDIR%\bin`:
 
+```
     @if "%FrameworkDir32%"=="" goto error_no_FrameworkDIR32
     @if "%FrameworkVersion32%"=="" goto error_no_FrameworkVer32
     @if "%Framework40Version%"=="" goto error_no_Framework40Version
 
     @set FrameworkDir=%FrameworkDir32%
     @set FrameworkVersion=%FrameworkVersion32%
+```
 
 Also, instead of doing `setx` in the above steps (which makes permanent variables on the system), you can add those command with `@set` in place of `setx` in the `%VCINSTALLDIR%\vcvarsall.bat`.
 
